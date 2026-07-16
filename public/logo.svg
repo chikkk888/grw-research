@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" role="img" aria-labelledby="title desc">
+  <title id="title">GRW Research</title>
+  <desc id="desc">Wordmark logo: bold GRW above lightly tracked Research</desc>
+  <!-- Stacked wordmark  Concept 1. Ink: #0F172A -->
+  <text
+    x="160"
+    y="72"
+    text-anchor="middle"
+    font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+    font-size="64"
+    font-weight="700"
+    letter-spacing="-1.5"
+    fill="#0F172A"
+  >GRW</text>
+  <text
+    x="160"
+    y="112"
+    text-anchor="middle"
+    font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif"
+    font-size="22"
+    font-weight="300"
+    letter-spacing="8.5"
+    fill="#0F172A"
+  >Research</text>
+</svg>
