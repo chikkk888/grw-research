@@ -190,7 +190,7 @@ export default function Bpc157Page() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="#research-overview">Read the overview</ButtonLink>
-              <ButtonLink href="#where-to-purchase" variant="secondary">
+              <ButtonLink href="#merchant-documentation" variant="secondary">
                 Sourcing considerations
               </ButtonLink>
             </div>
@@ -228,15 +228,35 @@ export default function Bpc157Page() {
               </p>
             </section>
 
-            <CtaCard
-              title="Prefer structured education before commercial pages"
-              body="Use this guide to understand research context first. Affiliate destinations, if used, should feel like documentation review — not impulse shopping."
-              primaryHref="#current-evidence"
-              primaryLabel="Review current evidence"
-              secondaryHref="/affiliate-disclosure"
-              secondaryLabel="Affiliate disclosure"
-              tone="soft"
-            />
+            <div className="not-prose" id="merchant-documentation">
+              <CtaCard
+                eyebrow="Affiliate-supported documentation link"
+                title="Review BPC-157 product information"
+                body="After the overview above, you can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
+                primaryHref={affiliateHref ?? "/affiliate-disclosure"}
+                primaryLabel={
+                  affiliateHref
+                    ? "View Swiss Chems product information"
+                    : "Affiliate links currently disabled"
+                }
+                secondaryHref="#current-evidence"
+                secondaryLabel="Continue reading the evidence"
+                externalPrimary={Boolean(affiliateHref)}
+                tone="emerald"
+              >
+                <p className="mt-3 text-xs text-muted">
+                  Affiliate partner: Swiss Chems. Disclosed affiliate link. GRW
+                  Research is independent and not a Swiss Chems storefront.{" "}
+                  <Link
+                    href="/affiliate-disclosure"
+                    className="underline underline-offset-2"
+                  >
+                    Affiliate disclosure
+                  </Link>
+                  .
+                </p>
+              </CtaCard>
+            </div>
 
             {/* Research overview */}
             <section id="research-overview" className="scroll-mt-28">
@@ -403,13 +423,13 @@ export default function Bpc157Page() {
 
             <div className="not-prose">
               <CtaCard
-                eyebrow="Affiliate-supported documentation link"
-                title="Review BPC-157 product information"
-                body="Open the merchant listing to evaluate available documentation, research-use notices, and product details. Education remains primary; this is a secondary evaluation step."
+                eyebrow="Still evaluating documentation?"
+                title="Open the Swiss Chems BPC-157 listing"
+                body="Return to the merchant page to review testing materials, research-use terms, shipping details, and product format before making any independent decision."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
-                    ? "View merchant product information"
+                    ? "View Swiss Chems product information"
                     : "Affiliate links currently disabled"
                 }
                 secondaryHref="/affiliate-disclosure"
@@ -418,16 +438,8 @@ export default function Bpc157Page() {
                 tone="emerald"
               >
                 <p className="mt-3 text-xs text-muted">
-                  Affiliate partner: Swiss Chems. This is a disclosed affiliate
-                  link. GRW Research is an independent publication and is not a
-                  Swiss Chems branded storefront. See our{" "}
-                  <Link
-                    href="/affiliate-disclosure"
-                    className="underline underline-offset-2"
-                  >
-                    affiliate disclosure
-                  </Link>
-                  .
+                  Disclosed affiliate link. We may earn a commission at no extra
+                  cost to you.
                 </p>
               </CtaCard>
             </div>
