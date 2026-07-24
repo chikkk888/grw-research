@@ -29,7 +29,7 @@ export const affiliateLinksEnabled =
 
 const SWISS_CHEMS_DEFAULT_BASE = "https://swisschems.is";
 /** Public affiliate tracking id — override with AFFILIATE_SWISS_CHEMS_REF if needed. */
-const SWISS_CHEMS_DEFAULT_REF = "MAURICIOPINEDA";
+const SWISS_CHEMS_DEFAULT_REF = "fox888";
 
 function resolveSwissChemsBaseUrl(): string {
   const fromEnv = process.env.AFFILIATE_SWISS_CHEMS_BASE_URL?.trim();
