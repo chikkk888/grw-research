@@ -9,6 +9,7 @@ const envSchema = z.object({
   NEXT_PUBLIC_GSC_VERIFICATION: z.string().optional(),
   AFFILIATE_LINKS_ENABLED: z.enum(["true", "false"]).optional(),
   AFFILIATE_SWISS_CHEMS_BASE_URL: z.string().url().optional(),
+  AFFILIATE_SWISS_CHEMS_REF: z.string().optional(),
   AFFILIATE_DEFAULT_CAMPAIGN: z.string().optional(),
 });
 
@@ -24,6 +25,7 @@ export function getEnv(): PublicEnv {
     NEXT_PUBLIC_GSC_VERIFICATION: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
     AFFILIATE_LINKS_ENABLED: process.env.AFFILIATE_LINKS_ENABLED,
     AFFILIATE_SWISS_CHEMS_BASE_URL: process.env.AFFILIATE_SWISS_CHEMS_BASE_URL,
+    AFFILIATE_SWISS_CHEMS_REF: process.env.AFFILIATE_SWISS_CHEMS_REF,
     AFFILIATE_DEFAULT_CAMPAIGN: process.env.AFFILIATE_DEFAULT_CAMPAIGN,
   });
 
