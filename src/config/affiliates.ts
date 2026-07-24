@@ -12,6 +12,8 @@ export type AffiliateProduct = {
   name: string;
   format: string;
   path: string;
+  /** When false, buildAffiliateUrl returns null for this product. */
+  enabled?: boolean;
   testingDocsUrl?: string;
   shippingInfoUrl?: string;
   researchUseNotice: string;
@@ -29,10 +31,8 @@ export const merchants: Record<string, AffiliateMerchant> = {
   "swiss-chems": {
     id: "swiss-chems",
     name: "Swiss Chems",
-    // Placeholder destination — replace with real affiliate base URL via env
     baseUrl:
-      process.env.AFFILIATE_SWISS_CHEMS_BASE_URL ??
-      "https://example.com/affiliate/swiss-chems",
+      process.env.AFFILIATE_SWISS_CHEMS_BASE_URL ?? "https://swisschems.is",
     disclosureLabel: "Affiliate partner",
     enabled: true,
   },
@@ -42,9 +42,11 @@ export const products: Record<string, AffiliateProduct> = {
   "swiss-chems-ghk-cu": {
     id: "swiss-chems-ghk-cu",
     merchantId: "swiss-chems",
-    name: "GHK-Cu (placeholder product listing)",
+    name: "GHK-Cu (placeholder — product URL pending)",
     format: "Research compound listing — format TBD",
+    // No real product path yet; keep disabled so we do not invent a destination.
     path: "/ghk-cu",
+    enabled: false,
     testingDocsUrl: undefined,
     shippingInfoUrl: undefined,
     researchUseNotice:
@@ -53,9 +55,10 @@ export const products: Record<string, AffiliateProduct> = {
   "swiss-chems-bpc-157": {
     id: "swiss-chems-bpc-157",
     merchantId: "swiss-chems",
-    name: "BPC-157 (placeholder product listing)",
-    format: "Research compound listing — format TBD",
-    path: "/bpc-157",
+    name: "BPC-157",
+    format: "0.5mg capsule, 60 capsules",
+    path: "/product/bpc-157-0-5mg-capsule-60-capsules/",
+    enabled: true,
     testingDocsUrl: undefined,
     shippingInfoUrl: undefined,
     researchUseNotice:
@@ -82,9 +85,18 @@ export function buildAffiliateUrl(
   if (!merchant || !merchant.enabled) return null;
 
   const product = productId ? getProduct(productId) : undefined;
+  if (productId) {
+    if (!product || product.enabled === false) return null;
+  }
+
   const url = new URL(
     product ? `${merchant.baseUrl.replace(/\/$/, "")}${product.path}` : merchant.baseUrl,
   );
+
+  // Merchant affiliate tracking id (e.g. Swiss Chems ?ref=)
+  if (merchantId === "swiss-chems" && process.env.AFFILIATE_SWISS_CHEMS_REF) {
+    url.searchParams.set("ref", process.env.AFFILIATE_SWISS_CHEMS_REF);
+  }
 
   Object.entries(campaign).forEach(([key, value]) => {
     if (value) url.searchParams.set(key, value);
