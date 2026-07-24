@@ -18,7 +18,7 @@ export default function Page() {
         <h2 className="!mt-10 font-semibold tracking-tight text-2xl text-ink">Independence goals</h2>
         <p className="text-ink-soft">Affiliate relationships must not override educational integrity. We aim for recommendations that read like careful evaluations, not advertisements.</p>
         <h2 className="!mt-10 font-semibold tracking-tight text-2xl text-ink">Swiss Chems</h2>
-        <p className="text-ink-soft">Swiss Chems is expected to be an initial affiliate partner. This website is not a Swiss Chems branded property.</p>
+        <p className="text-ink-soft">Swiss Chems is an affiliate partner. Some product-information links may earn GRW Marketing a commission. This website is not a Swiss Chems branded property, and educational content is not a purchase recommendation.</p>
         <h2 className="!mt-10 font-semibold tracking-tight text-2xl text-ink">How links work</h2>
         <p className="text-ink-soft">Affiliate destinations are managed centrally, use sponsored/nofollow relationship attributes, and can be disabled globally.</p>
         <h2 className="!mt-10 font-semibold tracking-tight text-2xl text-ink">Questions</h2>
