@@ -418,8 +418,16 @@ export default function Bpc157Page() {
                 tone="emerald"
               >
                 <p className="mt-3 text-xs text-muted">
-                  Partner placeholder: Swiss Chems. Destinations are configurable
-                  and can be disabled via environment settings.
+                  Affiliate partner: Swiss Chems. This is a disclosed affiliate
+                  link. GRW Research is an independent publication and is not a
+                  Swiss Chems branded storefront. See our{" "}
+                  <Link
+                    href="/affiliate-disclosure"
+                    className="underline underline-offset-2"
+                  >
+                    affiliate disclosure
+                  </Link>
+                  .
                 </p>
               </CtaCard>
             </div>

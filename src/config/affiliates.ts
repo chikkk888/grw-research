@@ -27,12 +27,24 @@ export type AffiliateCampaignParams = Record<string, string>;
 export const affiliateLinksEnabled =
   process.env.AFFILIATE_LINKS_ENABLED !== "false";
 
+const SWISS_CHEMS_DEFAULT_BASE = "https://swisschems.is";
+/** Public affiliate tracking id — override with AFFILIATE_SWISS_CHEMS_REF if needed. */
+const SWISS_CHEMS_DEFAULT_REF = "MAURICIOPINEDA";
+
+function resolveSwissChemsBaseUrl(): string {
+  const fromEnv = process.env.AFFILIATE_SWISS_CHEMS_BASE_URL?.trim();
+  // Ignore stale placeholder values that may still be set in hosting env.
+  if (!fromEnv || fromEnv.includes("example.com")) {
+    return SWISS_CHEMS_DEFAULT_BASE;
+  }
+  return fromEnv.replace(/\/$/, "");
+}
+
 export const merchants: Record<string, AffiliateMerchant> = {
   "swiss-chems": {
     id: "swiss-chems",
     name: "Swiss Chems",
-    baseUrl:
-      process.env.AFFILIATE_SWISS_CHEMS_BASE_URL ?? "https://swisschems.is",
+    baseUrl: resolveSwissChemsBaseUrl(),
     disclosureLabel: "Affiliate partner",
     enabled: true,
   },
@@ -94,8 +106,12 @@ export function buildAffiliateUrl(
   );
 
   // Merchant affiliate tracking id (e.g. Swiss Chems ?ref=)
-  if (merchantId === "swiss-chems" && process.env.AFFILIATE_SWISS_CHEMS_REF) {
-    url.searchParams.set("ref", process.env.AFFILIATE_SWISS_CHEMS_REF);
+  if (merchantId === "swiss-chems") {
+    const ref =
+      process.env.AFFILIATE_SWISS_CHEMS_REF?.trim() || SWISS_CHEMS_DEFAULT_REF;
+    if (ref && ref !== "YOUR_AFFILIATE_REF") {
+      url.searchParams.set("ref", ref);
+    }
   }
 
   Object.entries(campaign).forEach(([key, value]) => {
