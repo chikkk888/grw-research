@@ -23,8 +23,12 @@ export const metadata: Metadata = {
   }),
   metadataBase: new URL(siteConfig.url),
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/icon", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon",
+    apple: [{ url: "/apple-icon", type: "image/png" }],
   },
   verification: analytics.gscVerification
     ? { google: analytics.gscVerification }
