@@ -102,10 +102,18 @@ Avoid: Buy now / Order BPC / Heal faster
 
 ## Image brief (designer or AI)
 
-Shared style for all three:
-- Deep navy / off-white editorial palette (match site)
-- Serif or distinctive display type — not Inter/Roboto
-- GRW Research wordmark top or bottom
-- Single focal diagram or abstract molecular line art (not injection porn)
-- Generous whitespace
+**v2 visuals (live files — same copy, different looks):**
+
+| Pin | File | Visual style |
+|-----|------|----------------|
+| `pin_what_is_bpc` | `pinterest-pin-what-is-bpc.png` | Photo-led Atlas reading |
+| `pin_evidence_limits` | `pinterest-pin-evidence-limits.png` | Light paper / journal diagram |
+| `pin_coa_checklist` | `pinterest-pin-coa-checklist.png` | Emerald checklist card |
+
+v1 backups: `ads/pinterest/archive-v1/`
+
+Shared rules still:
+- GRW Research brand on-image
+- Same on-image headlines as above
 - No neon, no bodybuilder physiques, no fake “clinically proven” seals
+- Mark **AI modified** when uploading replacements in Pinterest

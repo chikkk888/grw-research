@@ -153,6 +153,11 @@ body {
   text-underline-offset: 3px;
 }
 
+/* Button-styled links (CtaCard, CTAs) must keep high-contrast label colors */
+.prose-article a.inline-flex {
+  text-decoration: none;
+}
+
 .prose-article strong {
   color: var(--ink);
   font-weight: 600;

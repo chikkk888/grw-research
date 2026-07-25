@@ -87,7 +87,7 @@ export function ProductInfoCard({
           href={destination}
           merchantId={product.merchantId}
           productId={product.id}
-          className="inline-flex rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
+          className="inline-flex rounded-md bg-accent px-4 py-2.5 text-sm font-medium !text-white no-underline transition-colors hover:bg-accent-hover hover:!text-white"
         >
           {destination ? ctaLabel : "Affiliate destinations disabled"}
         </AffiliateLink>
