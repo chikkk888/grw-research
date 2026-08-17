@@ -25,15 +25,15 @@ export const metadata: Metadata = buildMetadata({
 
 const toc = [
   { id: "what-is-tb-500", label: "What is TB-500?" },
-  { id: "naming", label: "Naming confusion" },
+  { id: "naming", label: "Naming and identity" },
   { id: "research-overview", label: "Research overview" },
   { id: "mechanism", label: "Mechanism" },
   { id: "current-evidence", label: "Current evidence" },
   { id: "faq", label: "FAQ" },
   { id: "safety", label: "Safety considerations" },
   { id: "quality", label: "Quality considerations" },
-  { id: "comparison", label: "Comparison" },
-  { id: "where-to-purchase", label: "Where researchers purchase" },
+  { id: "comparison", label: "TB-500 vs BPC-157" },
+  { id: "where-to-purchase", label: "Merchant listings" },
   { id: "disclaimer", label: "Disclaimer" },
 ];
 
@@ -41,7 +41,7 @@ const faqs = [
   {
     question: "Is TB-500 the same as thymosin β-4?",
     answer:
-      "Not reliably. Thymosin β-4 is a 43-amino-acid protein. Some research-chemical listings use “TB-500” for a synthetic 43-amino-acid analogue of that protein. Analytical literature has also identified commercial material sold as TB-500 as a much shorter acetylated 17–23 fragment. Always check sequence, molecular weight, and CAS — not the marketing name.",
+      "Not reliably. Thymosin β-4 is a 43-amino-acid peptide. Some research-chemical listings use “TB-500” for a synthetic 43-amino-acid analogue of that peptide. Analytical literature has also identified commercial material sold as TB-500 as a much shorter acetylated 17–23 fragment. Always check sequence, molecular weight, and CAS — not the marketing name.",
   },
   {
     question: "Is TB-500 approved for human use?",
@@ -63,6 +63,11 @@ const faqs = [
     answer:
       "Some researchers evaluate commercial documentation after reading the science. When we include a merchant link, it is disclosed as affiliate-supported and positioned after educational context — never as medical endorsement.",
   },
+  {
+    question: "How should researchers think about purity and testing?",
+    answer:
+      "Start with identity: analogue versus fragment, then molecular weight and CAS. After that, look for batch-level third-party testing, research-use labeling, and handling information. Always verify documents directly with the merchant.",
+  },
 ];
 
 const namingRows = [
@@ -83,31 +88,31 @@ const namingRows = [
   },
   {
     criterion: "Research implication",
-    analogue: "Closer in size to the parent protein discussed in much of the Tβ4 literature",
-    fragment: "Isolated actin-binding motif; not the full protein",
+    analogue: "Closer in size to the parent peptide discussed in much of the Tβ4 literature",
+    fragment: "Isolated actin-binding motif; not the full peptide",
   },
 ];
 
 const comparisonRows = [
   {
-    criterion: "Evidence maturity",
-    tb: "Mostly preclinical; human work is stronger for native Tβ4 than for commercial “TB-500” SKUs",
-    notes: "Do not import Tβ4 trial claims onto a fragment listing",
+    criterion: "Identity",
+    tb: "43-amino-acid thymosin β-4 analogue; the TB-500 name is also used for a 7-residue fragment",
+    bpc: "15-amino-acid synthetic peptide (pentadecapeptide)",
   },
   {
-    criterion: "Typical research framing",
+    criterion: "Typical research themes",
     tb: "Actin dynamics, cell migration, cytoskeletal organization",
-    notes: "Online recovery claims usually exceed published certainty",
+    bpc: "Tissue signaling in preclinical models",
   },
   {
-    criterion: "Often discussed alongside",
-    tb: "BPC-157 (different peptide, different literature)",
-    notes: "A blend SKU does not merge the evidence bases",
+    criterion: "Evidence maturity",
+    tb: "Mostly preclinical; human Tβ4 work does not automatically apply to every TB-500 listing",
+    bpc: "Mostly preclinical; human certainty remains limited",
   },
   {
-    criterion: "Quality questions",
-    tb: "Sequence, CAS, MW, HPLC wavelength, batch COA",
-    notes: "Name alone is not identity",
+    criterion: "First quality check",
+    tb: "Analogue vs fragment, mass/CAS, then testing documents",
+    bpc: "Sequence, testing documents, research-use labeling",
   },
 ];
 
@@ -207,10 +212,10 @@ export default function Tb500Page() {
               An independent educational guide covering what “TB-500” usually
               refers to, how that name diverges from the 17–23 fragment, how
               thymosin β-4 is discussed in literature, and what identity checks
-              researchers typically run before trusting a listing.
+              researchers typically run before evaluating a listing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="#naming">See the naming problem</ButtonLink>
+              <ButtonLink href="#naming">Naming and identity</ButtonLink>
               <ButtonLink href="#merchant-documentation" variant="secondary">
                 Sourcing considerations
               </ButtonLink>
@@ -243,10 +248,10 @@ export default function Tb500Page() {
               <p>
                 The name is not a chemical identifier. Some products sold as
                 TB-500 have been characterized as a seven-residue fragment of
-                Tβ4 (residues 17–23), not the 43-residue parent. Those are
-                different molecules. Online summaries that treat every “TB-500”
-                SKU as interchangeable with native thymosin β-4 are compressing
-                that distinction away.
+                Tβ4 (residues 17–23), not the 43-residue parent peptide. Those
+                are different molecules. Online summaries that treat every
+                “TB-500” listing as interchangeable with native thymosin β-4
+                are compressing that distinction away.
               </p>
               <p>
                 TB-500 is frequently mentioned alongside{" "}
@@ -258,7 +263,7 @@ export default function Tb500Page() {
 
             <section id="naming" className="not-prose scroll-mt-28 mt-12">
               <h2 className="text-3xl font-semibold tracking-tight text-ink">
-                Naming confusion: analogue vs fragment
+                Naming and identity: analogue vs fragment
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
                 This is the main literacy problem in TB-500 coverage. Confirm
@@ -270,7 +275,7 @@ export default function Tb500Page() {
                   caption="Two things sold under overlapping TB-500 labels"
                   columns={[
                     { key: "criterion", label: "Check" },
-                    { key: "analogue", label: "Full-length analogue (this guide’s primary SKU)" },
+                    { key: "analogue", label: "Full-length analogue" },
                     { key: "fragment", label: "Fragment (17–23)" },
                   ]}
                   rows={namingRows}
@@ -279,7 +284,7 @@ export default function Tb500Page() {
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft">
                 Analytical work on a commercial TB-500 product (Esposito et al.,{" "}
                 <em>Drug Testing and Analysis</em>, 2012) identified
-                N-acetylated Tβ4(17–23), not the full 43-residue protein. That
+                N-acetylated Tβ4(17–23), not the full 43-residue peptide. That
                 paper is about product identity in the marketplace — not a
                 reason to assume every current listing is the fragment, and not
                 a reason to assume every listing is the analogue.
@@ -290,7 +295,7 @@ export default function Tb500Page() {
               <CtaCard
                 eyebrow="Affiliate-supported documentation link"
                 title="Review TB-500 (thymosin β-4 analogue) product information"
-                body="The linked Swiss Chems listing is the 0.5 mg capsule, 60-count format of the 43-amino-acid thymosin β-4 analogue — the same capsule format as the BPC-157 guide. After the identity overview above, you can review testing documentation, research-use notices, and product details. Education remains primary."
+                body="The linked Swiss Chems listing is the 0.5 mg capsule, 60-count thymosin β-4 analogue listing. After the identity overview above, you can review testing documentation, research-use notices, and product details. Education remains primary."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
@@ -322,8 +327,8 @@ export default function Tb500Page() {
                 Thymosin β-4 has a substantial preclinical literature around
                 actin sequestration and cell-migration models. Human and
                 translational work, where it exists, generally involves the
-                parent protein or closely specified analogues — not anonymous
-                “TB-500” bottles.
+                parent peptide or closely specified analogues — not commercial
+                products identified only by the TB-500 trade name.
               </p>
               <ul>
                 <li>
@@ -331,8 +336,9 @@ export default function Tb500Page() {
                   organization, and related signaling in experimental systems.
                 </li>
                 <li>
-                  Popular recovery and performance narratives usually outrun
-                  what commercial research-chemical SKUs can honestly claim.
+                  Popular outcome and performance narratives usually outrun
+                  what commercial research-chemical listings can honestly
+                  support.
                 </li>
                 <li>
                   Study quality, endpoints, and whether the test article matches
@@ -352,7 +358,7 @@ export default function Tb500Page() {
                 G-actin via a conserved motif (LKKTET, residues 17–23), which
                 influences actin polymerization dynamics. That motif is why the
                 short fragment exists as a research tool: to test whether a
-                given effect needs the whole protein or can be reproduced by
+                given effect needs the whole peptide or can be reproduced by
                 the isolated binding region.
               </p>
               <p>
@@ -386,11 +392,11 @@ export default function Tb500Page() {
                 </li>
                 <li>
                   Limited, uneven human certainty — and it is easy to mis-cite
-                  Tβ4 papers against a fragment SKU
+                  Tβ4 papers against a fragment listing
                 </li>
                 <li>
                   Marketplace identity papers showing that the label “TB-500”
-                  has not always matched the 43-residue protein
+                  has not always matched the 43-residue peptide
                 </li>
               </ol>
               <p>
@@ -416,7 +422,7 @@ export default function Tb500Page() {
                 <li>What has been reported for specified Tβ4 preparations</li>
                 <li>
                   What remains unknown for a given commercial analogue or
-                  fragment SKU
+                  fragment listing
                 </li>
                 <li>
                   Legal, institutional, and sport-anti-doping constraints that
@@ -443,7 +449,7 @@ export default function Tb500Page() {
                 </li>
                 <li>
                   Molecular weight and CAS consistent with that identity (not
-                  copied from a different SKU)
+                  copied from a different listing)
                 </li>
                 <li>
                   Third-party testing documentation for the batch you are
@@ -456,18 +462,23 @@ export default function Tb500Page() {
 
             <section id="comparison" className="not-prose scroll-mt-28 mt-12">
               <h2 className="text-3xl font-semibold tracking-tight text-ink">
-                Evaluation scaffold
+                TB-500 vs BPC-157
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
-                Educational framing only — not a product ranking or a protocol.
+                Educational comparison only — not a ranking, stack, or protocol.
+                See the{" "}
+                <Link href="/research/bpc-157" className="text-accent hover:underline">
+                  BPC-157 guide
+                </Link>{" "}
+                for the companion peptide.
               </p>
               <div className="mt-6">
                 <ComparisonTable
-                  caption="TB-500 research evaluation scaffold"
+                  caption="TB-500 vs BPC-157 (educational framing)"
                   columns={[
                     { key: "criterion", label: "Criterion" },
-                    { key: "tb", label: "TB-500 framing" },
-                    { key: "notes", label: "Research note" },
+                    { key: "tb", label: "TB-500" },
+                    { key: "bpc", label: "BPC-157" },
                   ]}
                   rows={comparisonRows}
                 />
@@ -475,21 +486,18 @@ export default function Tb500Page() {
             </section>
 
             <section id="where-to-purchase" className="scroll-mt-28">
-              <h2>Where researchers purchase TB-500</h2>
+              <h2>Evaluating merchant listings</h2>
               <p>
-                After understanding the identity problem, some readers evaluate
+                After the identity checks above, some readers evaluate
                 merchant documentation for research-use materials. GRW Research
                 may earn a commission through disclosed affiliate relationships
                 when you use certain links.
               </p>
               <p>
                 The listing we point to is Swiss Chems’ TB-500 0.5 mg capsule,
-                60-count format of the thymosin β-4 analogue — paired with our{" "}
-                <Link href="/research/bpc-157">BPC-157 capsule guide</Link> so
-                format and merchant documentation can be compared on the same
-                terms. Review testing materials, confirm research-use terms, and
-                treat any purchase decision as independent of this educational
-                content.
+                60-count thymosin β-4 analogue listing. Review testing
+                materials, confirm research-use terms, and treat any purchase
+                decision as independent of this educational content.
               </p>
             </section>
 

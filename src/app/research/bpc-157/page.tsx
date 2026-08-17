@@ -31,21 +31,26 @@ const toc = [
   { id: "faq", label: "FAQ" },
   { id: "safety", label: "Safety considerations" },
   { id: "quality", label: "Quality considerations" },
-  { id: "comparison", label: "Comparison" },
-  { id: "where-to-purchase", label: "Where researchers purchase" },
+  { id: "comparison", label: "BPC-157 vs TB-500" },
+  { id: "where-to-purchase", label: "Merchant listings" },
   { id: "disclaimer", label: "Disclaimer" },
 ];
 
 const faqs = [
+  {
+    question: "What is BPC-157, chemically?",
+    answer:
+      "BPC-157 is a synthetic pentadecapeptide: a 15-amino-acid sequence related to a portion of Body Protection Compound, a gastric protein described in early literature. The 15-residue research compound is not the same as that parent material.",
+  },
   {
     question: "Is BPC-157 approved for human use?",
     answer:
       "Regulatory status varies by jurisdiction and changes over time. GRW Research does not present BPC-157 as an approved therapy. Readers should verify current regulations and treat this page as educational research context only.",
   },
   {
-    question: "What does the research typically investigate?",
+    question: "Is BPC-157 the same as TB-500?",
     answer:
-      "Published literature often explores tissue-related pathways, cellular signaling themes, and preclinical models. Human evidence remains limited relative to online interest, and study designs vary widely in quality.",
+      "No. They are different peptides with different sequences and literatures. They are often discussed together, and some merchants sell blends, but a combined listing does not combine the evidence.",
   },
   {
     question: "Can this guide tell me how to dose BPC-157?",
@@ -66,24 +71,24 @@ const faqs = [
 
 const comparisonRows = [
   {
+    criterion: "Identity",
+    bpc: "15-amino-acid synthetic peptide (pentadecapeptide)",
+    tb: "43-amino-acid thymosin β-4 analogue; the TB-500 name is also used for a 7-residue fragment",
+  },
+  {
+    criterion: "Typical research themes",
+    bpc: "Tissue signaling in preclinical models",
+    tb: "Actin dynamics, cell migration, cytoskeletal organization",
+  },
+  {
     criterion: "Evidence maturity",
-    bpc: "Mostly preclinical / early translational interest",
-    notes: "Human clinical certainty remains limited",
+    bpc: "Mostly preclinical; human certainty remains limited",
+    tb: "Mostly preclinical; human Tβ4 work does not automatically apply to every TB-500 listing",
   },
   {
-    criterion: "Typical research framing",
-    bpc: "Tissue pathway / repair-related hypotheses",
-    notes: "Claims often exceed published certainty",
-  },
-  {
-    criterion: "Educational priority",
-    bpc: "Mechanism + evidence limits first",
-    notes: "Commerce only after context",
-  },
-  {
-    criterion: "Quality questions",
-    bpc: "Testing docs, labeling, batch transparency",
-    notes: "Verify merchant materials directly",
+    criterion: "First quality check",
+    bpc: "Sequence, testing documents, research-use labeling",
+    tb: "Analogue vs fragment, mass/CAS, then testing documents",
   },
 ];
 
@@ -117,7 +122,7 @@ export default function Bpc157Page() {
           },
           mainEntityOfPage: absoluteUrl("/research/bpc-157"),
           datePublished: "2026-07-16",
-          dateModified: "2026-07-16",
+          dateModified: "2026-08-17",
         }}
       />
       <JsonLd
@@ -215,23 +220,25 @@ export default function Bpc157Page() {
             <section id="what-is-bpc-157" className="scroll-mt-28">
               <h2>What is BPC-157?</h2>
               <p>
-                BPC-157 is a synthetic peptide sequence frequently discussed in
-                research communities interested in tissue-related pathways. In
+                BPC-157 is a synthetic pentadecapeptide: a 15-amino-acid
+                sequence related to a portion of Body Protection Compound, a
+                gastric protein described in early literature. In
                 educational contexts, it is best understood as a research
-                compound with a growing body of preclinical literature — not as
-                a proven clinical therapy.
+                compound with a growing preclinical literature — not as a proven
+                clinical therapy.
               </p>
               <p>
-                Online coverage often compresses nuance. This guide prioritizes
-                calm framing: what is commonly studied, what mechanisms are
-                hypothesized, and where confidence should remain limited.
+                Online coverage often compresses that distinction, and often
+                overstates how far animal and cell findings can be translated.
+                This guide prioritizes calm framing: what is commonly studied,
+                what mechanisms are hypothesized, and where confidence should
+                remain limited.
               </p>
               <p>
                 BPC-157 is often discussed alongside{" "}
-                <Link href="/research/tb-500">TB-500</Link> (a thymosin β-4
-                analogue). They are different peptides. See the TB-500 guide for
-                the separate naming problem between the full-length analogue and
-                the 17–23 fragment.
+                <Link href="/research/tb-500">TB-500</Link>, a thymosin β-4
+                analogue. They are different peptides with different sequences.
+                A blend listing does not merge the evidence bases.
               </p>
             </section>
 
@@ -239,7 +246,7 @@ export default function Bpc157Page() {
               <CtaCard
                 eyebrow="Affiliate-supported documentation link"
                 title="Review BPC-157 product information"
-                body="After the overview above, you can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
+                body="You can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
@@ -276,8 +283,8 @@ export default function Bpc157Page() {
               </p>
               <ul>
                 <li>
-                  Research themes often involve tissue signaling and recovery
-                  pathways discussed in preclinical settings.
+                  Research themes often involve tissue signaling in preclinical
+                  settings.
                 </li>
                 <li>
                   Study quality, replication, and translational relevance vary
@@ -298,10 +305,12 @@ export default function Bpc157Page() {
             <section id="mechanism" className="scroll-mt-28">
               <h2>Mechanism</h2>
               <p>
-                Proposed mechanisms in research discussions often relate to
-                cellular signaling networks associated with tissue homeostasis
-                and repair-related pathways. These hypotheses are useful for
-                orientation, but mechanism talk is not proof of outcome.
+                BPC-157 is the 15-residue synthetic sequence, not the larger
+                parent material from which that sequence was drawn. Proposed
+                mechanisms in research discussions often involve cellular
+                signaling associated with tissue homeostasis in experimental
+                models. Those hypotheses are useful for orientation. Mechanism
+                talk is not proof of outcome.
               </p>
               <p>
                 When evaluating any claim, ask: Was the pathway observed in a
@@ -382,7 +391,11 @@ export default function Bpc157Page() {
                 checkpoints include:
               </p>
               <ul>
-                <li>Third-party testing documentation availability</li>
+                <li>
+                  Identity: the listing should match the 15-amino-acid BPC-157
+                  sequence, not a blend or a differently named fragment
+                </li>
+                <li>Third-party testing documentation for the relevant batch</li>
                 <li>Clear research-use labeling and product identification</li>
                 <li>Batch or certificate transparency where provided</li>
                 <li>Shipping, storage, and handling information clarity</li>
@@ -393,19 +406,23 @@ export default function Bpc157Page() {
             {/* Comparison */}
             <section id="comparison" className="not-prose scroll-mt-28 mt-12">
               <h2 className="text-3xl font-semibold tracking-tight text-ink">
-                Comparison table placeholder
+                BPC-157 and TB-500
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
-                A structured comparison scaffold for editorial expansion. Values
-                below are educational framing placeholders, not product rankings.
+                Educational comparison only — not a ranking, stack, or protocol.
+                See the{" "}
+                <Link href="/research/tb-500" className="text-accent hover:underline">
+                  TB-500 guide
+                </Link>{" "}
+                for analogue versus fragment identity.
               </p>
               <div className="mt-6">
                 <ComparisonTable
-                  caption="BPC-157 research evaluation scaffold"
+                  caption="BPC-157 vs TB-500 (educational framing)"
                   columns={[
                     { key: "criterion", label: "Criterion" },
-                    { key: "bpc", label: "BPC-157 framing" },
-                    { key: "notes", label: "Research note" },
+                    { key: "bpc", label: "BPC-157" },
+                    { key: "tb", label: "TB-500" },
                   ]}
                   rows={comparisonRows}
                 />
@@ -414,7 +431,7 @@ export default function Bpc157Page() {
 
             {/* Where to purchase */}
             <section id="where-to-purchase" className="scroll-mt-28">
-              <h2>Where researchers purchase BPC-157</h2>
+              <h2>Evaluating merchant listings</h2>
               <p>
                 After understanding the research context, some readers evaluate
                 merchant documentation for research-use materials. GRW Research
