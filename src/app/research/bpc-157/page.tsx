@@ -242,36 +242,6 @@ export default function Bpc157Page() {
               </p>
             </section>
 
-            <div className="not-prose" id="merchant-documentation">
-              <CtaCard
-                eyebrow="Affiliate-supported documentation link"
-                title="Review BPC-157 product information"
-                body="You can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
-                primaryHref={affiliateHref ?? "/affiliate-disclosure"}
-                primaryLabel={
-                  affiliateHref
-                    ? "View Swiss Chems product information"
-                    : "Affiliate links currently disabled"
-                }
-                secondaryHref="#current-evidence"
-                secondaryLabel="Continue reading the evidence"
-                externalPrimary={Boolean(affiliateHref)}
-                tone="emerald"
-              >
-                <p className="mt-3 text-xs text-muted">
-                  Affiliate partner: Swiss Chems. Disclosed affiliate link. GRW
-                  Research is independent and not a Swiss Chems storefront.{" "}
-                  <Link
-                    href="/affiliate-disclosure"
-                    className="underline underline-offset-2"
-                  >
-                    Affiliate disclosure
-                  </Link>
-                  .
-                </p>
-              </CtaCard>
-            </div>
-
             {/* Research overview */}
             <section id="research-overview" className="scroll-mt-28">
               <h2>Research overview</h2>
@@ -345,12 +315,79 @@ export default function Bpc157Page() {
                 </li>
               </ol>
               <p>
-                GRW Research does not invent citations or present placeholder
-                studies as verified outcomes. Where specific papers are later
-                curated by editorial review, they will be listed with clear
-                attribution and access links.
+                Two starting points in the published record, not a complete
+                bibliography:
+              </p>
+              <ul>
+                <li>
+                  Sikiric P, Seiwerth S, Rucman R, et al. Stable gastric
+                  pentadecapeptide BPC 157: novel therapy in gastrointestinal
+                  tract.{" "}
+                  <em>Current Pharmaceutical Design</em>. 2011;17(16):1612-1632.{" "}
+                  <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/21548867/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    PubMed 21548867
+                  </a>
+                  . A review from the originating research group; the title’s
+                  “therapy” language is theirs, not a GRW conclusion.
+                </li>
+                <li>
+                  Chang CH, Tsai WC, Lin MS, Hsu YH, Pang JHS. The promoting
+                  effect of pentadecapeptide BPC 157 on tendon healing involves
+                  tendon outgrowth, cell survival, and cell migration.{" "}
+                  <em>Journal of Applied Physiology</em>. 2011;110(3):774-780.{" "}
+                  <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/21030672/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    PubMed 21030672
+                  </a>
+                  . Ex vivo / in vitro fibroblast work — not human clinical
+                  proof. The title’s “healing” language is the authors’, not a
+                  GRW conclusion.
+                </li>
+              </ul>
+              <p>
+                Citing papers is not an efficacy claim. Much of the BPC-157
+                literature is preclinical and concentrated in a small set of
+                labs; independent replication and high-quality human data remain
+                limited.
               </p>
             </section>
+
+            <div className="not-prose" id="merchant-documentation">
+              <CtaCard
+                eyebrow="Affiliate-supported documentation link"
+                title="Review BPC-157 product information"
+                body="You can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
+                primaryHref={affiliateHref ?? "/affiliate-disclosure"}
+                primaryLabel={
+                  affiliateHref
+                    ? "View Swiss Chems product information"
+                    : "Affiliate links currently disabled"
+                }
+                secondaryHref="#quality"
+                secondaryLabel="See quality considerations"
+                externalPrimary={Boolean(affiliateHref)}
+                tone="emerald"
+              >
+                <p className="mt-3 text-xs text-muted">
+                  Affiliate partner: Swiss Chems. Disclosed affiliate link. GRW
+                  Research is independent and not a Swiss Chems storefront.{" "}
+                  <Link
+                    href="/affiliate-disclosure"
+                    className="underline underline-offset-2"
+                  >
+                    Affiliate disclosure
+                  </Link>
+                  .
+                </p>
+              </CtaCard>
+            </div>
 
             {/* FAQ */}
             <div className="not-prose mt-12">
@@ -393,7 +430,7 @@ export default function Bpc157Page() {
               <ul>
                 <li>
                   Identity: the listing should match the 15-amino-acid BPC-157
-                  sequence, not a blend or a differently named fragment
+                  sequence, with a batch COA and clear research-use labeling
                 </li>
                 <li>Third-party testing documentation for the relevant batch</li>
                 <li>Clear research-use labeling and product identification</li>

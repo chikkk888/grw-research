@@ -44,6 +44,11 @@ const faqs = [
       "Not reliably. Thymosin β-4 is a 43-amino-acid peptide. Some research-chemical listings use “TB-500” for a synthetic 43-amino-acid analogue of that peptide. Analytical literature has also identified commercial material sold as TB-500 as a much shorter acetylated 17–23 fragment. Always check sequence, molecular weight, and CAS — not the marketing name.",
   },
   {
+    question: "Is TB-500 the same as BPC-157?",
+    answer:
+      "No. They are different peptides with different sequences and literatures. They are often discussed together, and some merchants sell blends, but a combined listing does not combine the evidence. See the BPC-157 guide for that compound.",
+  },
+  {
     question: "Is TB-500 approved for human use?",
     answer:
       "Regulatory status varies by jurisdiction and changes over time. GRW Research does not present TB-500 or thymosin β-4 analogues as approved therapies. Treat this page as educational research context only.",
@@ -400,10 +405,45 @@ export default function Tb500Page() {
                 </li>
               </ol>
               <p>
-                GRW Research does not invent citations or present placeholder
-                studies as verified outcomes. Where specific papers are later
-                curated by editorial review, they will be listed with clear
-                attribution.
+                Two starting points in the published record, not a complete
+                bibliography:
+              </p>
+              <ul>
+                <li>
+                  Safer D, Elzinga M, Nachmias VT. Thymosin β4 and Fx, an
+                  actin-sequestering peptide, are indistinguishable.{" "}
+                  <em>Journal of Biological Chemistry</em>. 1991;266(7):4029-4032.{" "}
+                  <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/1999398/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    PubMed 1999398
+                  </a>
+                  . Foundational biochemistry of native Tβ4 — not a commercial
+                  TB-500 listing.
+                </li>
+                <li>
+                  Esposito S, Deventer K, Goeman J, Van der Eycken J, Van Eenoo
+                  P. Synthesis and characterization of the N-terminal
+                  acetylated 17–23 fragment of thymosin beta 4 identified in
+                  TB-500.{" "}
+                  <em>Drug Testing and Analysis</em>. 2012;4(9):733-738.{" "}
+                  <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/22962027/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    PubMed 22962027
+                  </a>
+                  . Marketplace identity: one analyzed TB-500 product was the
+                  short fragment, not the 43-residue peptide.
+                </li>
+              </ul>
+              <p>
+                Citing papers is not an efficacy claim. Tβ4 biochemistry and a
+                given vendor’s TB-500 SKU are easy to conflate; match the test
+                article before importing results.
               </p>
             </section>
 
