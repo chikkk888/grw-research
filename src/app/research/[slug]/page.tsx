@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getGuideBySlug,
+  isDedicatedResearchSlug,
   researchGuides,
 } from "@/config/research-guides";
 import { buildMetadata } from "@/lib/seo";
@@ -16,14 +17,14 @@ type Props = {
 
 export async function generateStaticParams() {
   return researchGuides
-    .filter((guide) => guide.slug !== "bpc-157")
+    .filter((guide) => !isDedicatedResearchSlug(guide.slug))
     .map((guide) => ({ slug: guide.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
-  if (!guide || guide.slug === "bpc-157") {
+  if (!guide || isDedicatedResearchSlug(guide.slug)) {
     return buildMetadata({
       title: "Research guide",
       description: "Educational peptide research guide.",
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ResearchGuidePlaceholderPage({ params }: Props) {
   const { slug } = await params;
-  if (slug === "bpc-157") notFound();
+  if (isDedicatedResearchSlug(slug)) notFound();
 
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();

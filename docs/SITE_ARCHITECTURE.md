@@ -2,7 +2,7 @@
 
 ## Overview
 
-GRW Research is a Next.js App Router publication focused on evidence-driven peptide research education. The Research Library is the primary content hub; BPC-157 is the MVP conversion guide.
+GRW Research is a Next.js App Router publication focused on evidence-driven peptide research education. The Research Library is the primary content hub; BPC-157 and TB-500 are the live conversion guides.
 
 ## Route map
 

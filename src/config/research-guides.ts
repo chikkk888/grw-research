@@ -32,10 +32,10 @@ export const researchGuides: ResearchGuide[] = [
     title: "TB-500 Research Guide",
     compound: "TB-500",
     excerpt:
-      "Educational context on thymosin beta-4 fragments, research interest areas, and how TB-500 is discussed in published literature.",
+      "Educational context on thymosin β-4 analogues versus the 17–23 fragment, research interest areas, and how TB-500 is discussed in published literature.",
     href: "/research/tb-500",
     featured: true,
-    status: "coming-soon",
+    status: "published",
     accent: "emerald",
     category: "Tissue research",
   },
@@ -98,6 +98,13 @@ export const researchGuides: ResearchGuide[] = [
   },
 ];
 
+/** Full conversion guides with dedicated App Router pages (not the placeholder). */
+export const dedicatedResearchSlugs = ["bpc-157", "tb-500"] as const;
+
+export function isDedicatedResearchSlug(slug: string): boolean {
+  return (dedicatedResearchSlugs as readonly string[]).includes(slug);
+}
+
 export function getFeaturedGuides(limit = 4): ResearchGuide[] {
   return researchGuides.filter((g) => g.featured).slice(0, limit);
 }
@@ -108,6 +115,13 @@ export function getPublishedGuides(): ResearchGuide[] {
 
 export function getGuideBySlug(slug: string): ResearchGuide | undefined {
   return researchGuides.find((g) => g.slug === slug);
+}
+
+export function getRelatedGuides(slug: string, limit = 4): ResearchGuide[] {
+  const others = researchGuides.filter((g) => g.slug !== slug);
+  const published = others.filter((g) => g.status === "published");
+  const upcoming = others.filter((g) => g.status !== "published");
+  return [...published, ...upcoming].slice(0, limit);
 }
 
 export const homeFaqs = [

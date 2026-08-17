@@ -76,6 +76,18 @@ export const products: Record<string, AffiliateProduct> = {
     researchUseNotice:
       "For research use only where applicable. Review merchant documentation, testing information, and local regulations before considering any purchase.",
   },
+  "swiss-chems-tb-500": {
+    id: "swiss-chems-tb-500",
+    merchantId: "swiss-chems",
+    name: "TB-500 (Thymosin Beta-4 analogue)",
+    format: "0.5mg capsule, 60 capsules",
+    path: "/product/tb-500-0-5mg-capsule-60-capsules/",
+    enabled: true,
+    testingDocsUrl: undefined,
+    shippingInfoUrl: undefined,
+    researchUseNotice:
+      "For research use only where applicable. This listing is the 43-amino-acid thymosin β-4 analogue (0.5 mg capsules). Review merchant documentation, identity details, testing information, and local regulations before considering any purchase.",
+  },
 };
 
 export function getMerchant(id: string): AffiliateMerchant | undefined {

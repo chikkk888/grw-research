@@ -16,15 +16,16 @@ import { RelatedArticles } from "@/components/ui/RelatedArticles";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = buildMetadata({
-  title: "BPC-157 Research Guide",
+  title: "TB-500 Research Guide",
   description:
-    "Independent educational overview of BPC-157 research: mechanisms discussed in literature, evidence quality, safety considerations, and how researchers evaluate sourcing.",
-  path: "/research/bpc-157",
+    "Independent educational overview of TB-500 and thymosin β-4 analogues: how the name is used, how the 17–23 fragment differs, evidence limits, and quality checks for researchers.",
+  path: "/research/tb-500",
   type: "article",
 });
 
 const toc = [
-  { id: "what-is-bpc-157", label: "What is BPC-157?" },
+  { id: "what-is-tb-500", label: "What is TB-500?" },
+  { id: "naming", label: "Naming confusion" },
   { id: "research-overview", label: "Research overview" },
   { id: "mechanism", label: "Mechanism" },
   { id: "current-evidence", label: "Current evidence" },
@@ -38,62 +39,82 @@ const toc = [
 
 const faqs = [
   {
-    question: "Is BPC-157 approved for human use?",
+    question: "Is TB-500 the same as thymosin β-4?",
     answer:
-      "Regulatory status varies by jurisdiction and changes over time. GRW Research does not present BPC-157 as an approved therapy. Readers should verify current regulations and treat this page as educational research context only.",
+      "Not reliably. Thymosin β-4 is a 43-amino-acid protein. Some research-chemical listings use “TB-500” for a synthetic 43-amino-acid analogue of that protein. Analytical literature has also identified commercial material sold as TB-500 as a much shorter acetylated 17–23 fragment. Always check sequence, molecular weight, and CAS — not the marketing name.",
   },
   {
-    question: "What does the research typically investigate?",
+    question: "Is TB-500 approved for human use?",
     answer:
-      "Published literature often explores tissue-related pathways, cellular signaling themes, and preclinical models. Human evidence remains limited relative to online interest, and study designs vary widely in quality.",
+      "Regulatory status varies by jurisdiction and changes over time. GRW Research does not present TB-500 or thymosin β-4 analogues as approved therapies. Treat this page as educational research context only.",
   },
   {
-    question: "Can this guide tell me how to dose BPC-157?",
+    question: "Can this guide tell me how to dose TB-500?",
     answer:
-      "No. We do not provide dosing, administration, or treatment protocols. Educational content here is intended to improve research literacy — not to guide personal use.",
+      "No. We do not provide dosing, administration, stacking, or treatment protocols. Educational content here is intended to improve research literacy — not to guide personal use.",
+  },
+  {
+    question: "Why is the 17–23 fragment cheaper?",
+    answer:
+      "It is a different, much smaller molecule (seven amino acids versus 43). Price is not a discount on “the same TB-500.” A cheaper fragment listing is not interchangeable with a full-length analogue listing.",
   },
   {
     question: "Why include affiliate links?",
     answer:
       "Some researchers evaluate commercial documentation after reading the science. When we include a merchant link, it is disclosed as affiliate-supported and positioned after educational context — never as medical endorsement.",
   },
+];
+
+const namingRows = [
   {
-    question: "How should researchers think about purity and testing?",
-    answer:
-      "Common evaluation criteria include whether a vendor provides third-party testing documentation, clear research-use labeling, batch transparency, and shipping/handling clarity. Always verify documents directly with the merchant.",
+    criterion: "Typical identity",
+    analogue: "43-amino-acid thymosin β-4 analogue",
+    fragment: "Acetylated 17–23 heptapeptide (Ac-LKKTETQ)",
+  },
+  {
+    criterion: "Approximate mass",
+    analogue: "~4,963 Da",
+    fragment: "~889 Da",
+  },
+  {
+    criterion: "What the name “TB-500” may mean",
+    analogue: "Vendor catalogues often use TB-500 for this analogue",
+    fragment: "Anti-doping / analytical papers have identified some TB-500 products as this fragment",
+  },
+  {
+    criterion: "Research implication",
+    analogue: "Closer in size to the parent protein discussed in much of the Tβ4 literature",
+    fragment: "Isolated actin-binding motif; not the full protein",
   },
 ];
 
 const comparisonRows = [
   {
     criterion: "Evidence maturity",
-    bpc: "Mostly preclinical / early translational interest",
-    notes: "Human clinical certainty remains limited",
+    tb: "Mostly preclinical; human work is stronger for native Tβ4 than for commercial “TB-500” SKUs",
+    notes: "Do not import Tβ4 trial claims onto a fragment listing",
   },
   {
     criterion: "Typical research framing",
-    bpc: "Tissue pathway / repair-related hypotheses",
-    notes: "Claims often exceed published certainty",
+    tb: "Actin dynamics, cell migration, cytoskeletal organization",
+    notes: "Online recovery claims usually exceed published certainty",
   },
   {
-    criterion: "Educational priority",
-    bpc: "Mechanism + evidence limits first",
-    notes: "Commerce only after context",
+    criterion: "Often discussed alongside",
+    tb: "BPC-157 (different peptide, different literature)",
+    notes: "A blend SKU does not merge the evidence bases",
   },
   {
     criterion: "Quality questions",
-    bpc: "Testing docs, labeling, batch transparency",
-    notes: "Verify merchant materials directly",
+    tb: "Sequence, CAS, MW, HPLC wavelength, batch COA",
+    notes: "Name alone is not identity",
   },
 ];
 
-const related = getRelatedGuides("bpc-157");
+const related = getRelatedGuides("tb-500");
 
-export default function Bpc157Page() {
-  const affiliateHref = buildAffiliateUrl(
-    "swiss-chems",
-    "swiss-chems-bpc-157",
-  );
+export default function Tb500Page() {
+  const affiliateHref = buildAffiliateUrl("swiss-chems", "swiss-chems-tb-500");
 
   return (
     <>
@@ -103,9 +124,9 @@ export default function Bpc157Page() {
         data={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "BPC-157 Research Guide",
+          headline: "TB-500 Research Guide",
           description:
-            "Independent educational overview of BPC-157 research for modern peptide science.",
+            "Independent educational overview of TB-500, thymosin β-4 analogues, and the 17–23 fragment naming problem.",
           author: {
             "@type": "Organization",
             name: "GRW Research",
@@ -115,9 +136,9 @@ export default function Bpc157Page() {
             name: "GRW Research",
             url: absoluteUrl("/"),
           },
-          mainEntityOfPage: absoluteUrl("/research/bpc-157"),
-          datePublished: "2026-07-16",
-          dateModified: "2026-07-16",
+          mainEntityOfPage: absoluteUrl("/research/tb-500"),
+          datePublished: "2026-08-17",
+          dateModified: "2026-08-17",
         }}
       />
       <JsonLd
@@ -140,8 +161,8 @@ export default function Bpc157Page() {
             {
               "@type": "ListItem",
               position: 3,
-              name: "BPC-157",
-              item: absoluteUrl("/research/bpc-157"),
+              name: "TB-500",
+              item: absoluteUrl("/research/tb-500"),
             },
           ],
         }}
@@ -161,7 +182,6 @@ export default function Bpc157Page() {
         }}
       />
 
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div
           className="pointer-events-none absolute inset-0"
@@ -173,7 +193,7 @@ export default function Bpc157Page() {
             items={[
               { label: "Home", href: "/" },
               { label: "Research Library", href: "/research" },
-              { label: "BPC-157" },
+              { label: "TB-500" },
             ]}
           />
           <div className="mt-8 max-w-3xl">
@@ -181,15 +201,16 @@ export default function Bpc157Page() {
               Research compound guide
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-              BPC-157: Evidence-Oriented Research Overview
+              TB-500: Evidence-Oriented Research Overview
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-              An independent educational guide covering what BPC-157 is, how it
-              is discussed in research literature, where evidence remains
-              uncertain, and what quality factors researchers typically evaluate.
+              An independent educational guide covering what “TB-500” usually
+              refers to, how that name diverges from the 17–23 fragment, how
+              thymosin β-4 is discussed in literature, and what identity checks
+              researchers typically run before trusting a listing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="#research-overview">Read the overview</ButtonLink>
+              <ButtonLink href="#naming">See the naming problem</ButtonLink>
               <ButtonLink href="#merchant-documentation" variant="secondary">
                 Sourcing considerations
               </ButtonLink>
@@ -211,35 +232,65 @@ export default function Bpc157Page() {
       <Container className="py-12 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_16.5rem]">
           <article className="prose-article max-w-none">
-            {/* What is */}
-            <section id="what-is-bpc-157" className="scroll-mt-28">
-              <h2>What is BPC-157?</h2>
+            <section id="what-is-tb-500" className="scroll-mt-28">
+              <h2>What is TB-500?</h2>
               <p>
-                BPC-157 is a synthetic peptide sequence frequently discussed in
-                research communities interested in tissue-related pathways. In
-                educational contexts, it is best understood as a research
-                compound with a growing body of preclinical literature — not as
-                a proven clinical therapy.
+                In research-chemical catalogues, TB-500 most often labels a
+                synthetic 43-amino-acid analogue of thymosin β-4 (Tβ4), a
+                naturally occurring actin-binding peptide. That is the compound
+                discussed on this page when we refer to a full-length analogue.
               </p>
               <p>
-                Online coverage often compresses nuance. This guide prioritizes
-                calm framing: what is commonly studied, what mechanisms are
-                hypothesized, and where confidence should remain limited.
+                The name is not a chemical identifier. Some products sold as
+                TB-500 have been characterized as a seven-residue fragment of
+                Tβ4 (residues 17–23), not the 43-residue parent. Those are
+                different molecules. Online summaries that treat every “TB-500”
+                SKU as interchangeable with native thymosin β-4 are compressing
+                that distinction away.
               </p>
               <p>
-                BPC-157 is often discussed alongside{" "}
-                <Link href="/research/tb-500">TB-500</Link> (a thymosin β-4
-                analogue). They are different peptides. See the TB-500 guide for
-                the separate naming problem between the full-length analogue and
-                the 17–23 fragment.
+                TB-500 is frequently mentioned alongside{" "}
+                <Link href="/research/bpc-157">BPC-157</Link>. They are
+                different peptides with different literatures. A combined
+                product listing does not merge the evidence bases.
+              </p>
+            </section>
+
+            <section id="naming" className="not-prose scroll-mt-28 mt-12">
+              <h2 className="text-3xl font-semibold tracking-tight text-ink">
+                Naming confusion: analogue vs fragment
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
+                This is the main literacy problem in TB-500 coverage. Confirm
+                identity from sequence, mass, and CAS — then read claims
+                against that identity.
+              </p>
+              <div className="mt-6">
+                <ComparisonTable
+                  caption="Two things sold under overlapping TB-500 labels"
+                  columns={[
+                    { key: "criterion", label: "Check" },
+                    { key: "analogue", label: "Full-length analogue (this guide’s primary SKU)" },
+                    { key: "fragment", label: "Fragment (17–23)" },
+                  ]}
+                  rows={namingRows}
+                />
+              </div>
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft">
+                Analytical work on a commercial TB-500 product (Esposito et al.,{" "}
+                <em>Drug Testing and Analysis</em>, 2012) identified
+                N-acetylated Tβ4(17–23), not the full 43-residue protein. That
+                paper is about product identity in the marketplace — not a
+                reason to assume every current listing is the fragment, and not
+                a reason to assume every listing is the analogue.
               </p>
             </section>
 
             <div className="not-prose" id="merchant-documentation">
               <CtaCard
                 eyebrow="Affiliate-supported documentation link"
-                title="Review BPC-157 product information"
-                body="After the overview above, you can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
+                title="Review TB-500 (thymosin β-4 analogue) product information"
+                body="The linked Swiss Chems listing is the 0.5 mg capsule, 60-count format of the 43-amino-acid thymosin β-4 analogue — the same capsule format as the BPC-157 guide. After the identity overview above, you can review testing documentation, research-use notices, and product details. Education remains primary."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
@@ -265,105 +316,111 @@ export default function Bpc157Page() {
               </CtaCard>
             </div>
 
-            {/* Research overview */}
             <section id="research-overview" className="scroll-mt-28">
               <h2>Research overview</h2>
               <p>
-                Interest in BPC-157 has grown faster than high-quality human
-                evidence. Much of the publicly discussed literature involves
-                animal models, cellular experiments, or mechanistic hypotheses
-                that do not automatically translate to clinical certainty.
+                Thymosin β-4 has a substantial preclinical literature around
+                actin sequestration and cell-migration models. Human and
+                translational work, where it exists, generally involves the
+                parent protein or closely specified analogues — not anonymous
+                “TB-500” bottles.
               </p>
               <ul>
                 <li>
-                  Research themes often involve tissue signaling and recovery
-                  pathways discussed in preclinical settings.
+                  Research themes often involve G-actin binding, cytoskeletal
+                  organization, and related signaling in experimental systems.
                 </li>
                 <li>
-                  Study quality, replication, and translational relevance vary
-                  substantially.
+                  Popular recovery and performance narratives usually outrun
+                  what commercial research-chemical SKUs can honestly claim.
                 </li>
                 <li>
-                  Popular summaries frequently overstate confidence relative to
-                  available data.
+                  Study quality, endpoints, and whether the test article matches
+                  a given vendor product all vary widely.
                 </li>
               </ul>
               <p>
-                A responsible reading posture treats BPC-157 research as an
-                evolving evidence base with meaningful open questions.
+                A responsible reading posture: map claims to a defined molecule,
+                then ask whether the cited studies used that molecule.
               </p>
             </section>
 
-            {/* Mechanism */}
             <section id="mechanism" className="scroll-mt-28">
               <h2>Mechanism</h2>
               <p>
-                Proposed mechanisms in research discussions often relate to
-                cellular signaling networks associated with tissue homeostasis
-                and repair-related pathways. These hypotheses are useful for
-                orientation, but mechanism talk is not proof of outcome.
+                Tβ4’s best-characterized biochemical role is binding monomeric
+                G-actin via a conserved motif (LKKTET, residues 17–23), which
+                influences actin polymerization dynamics. That motif is why the
+                short fragment exists as a research tool: to test whether a
+                given effect needs the whole protein or can be reproduced by
+                the isolated binding region.
               </p>
               <p>
-                When evaluating any claim, ask: Was the pathway observed in a
-                controlled model? Has it been replicated? Does the experimental
-                context match the claim being made?
+                Mechanism language is orientation, not proof of outcome. When a
+                source jumps from “actin-binding motif” to guaranteed tissue or
+                performance results, treat that as a credibility warning —
+                especially on commercial pages.
               </p>
             </section>
 
             <CtaCard
               eyebrow="Research checkpoint"
-              title="Mechanism literacy reduces hype susceptibility"
-              body="If a source jumps from pathway language to guaranteed outcomes, treat that as a credibility warning — especially on commercial pages."
+              title="The fragment is a motif, not a shortcut to the parent literature"
+              body="If a listing is 17–23, do not borrow full-length Tβ4 study claims. If a listing is a 43-residue analogue, still confirm that cited papers used a matching test article."
               primaryHref="#quality"
               primaryLabel="See quality considerations"
               tone="default"
             />
 
-            {/* Current evidence */}
             <section id="current-evidence" className="scroll-mt-28">
               <h2>Current evidence</h2>
               <p>
-                Evidence should be graded by design quality, sample context,
-                endpoints, and reproducibility — not by social media consensus.
-                For BPC-157, researchers typically encounter:
+                Grade evidence by design quality, the identity of the test
+                article, endpoints, and reproducibility — not by how often
+                TB-500 appears next to BPC-157 in forums.
               </p>
               <ol>
-                <li>Preclinical studies with varying methodological rigor</li>
-                <li>Limited and uneven human clinical certainty</li>
                 <li>
-                  Secondary summaries that may omit limitations or negative
-                  findings
+                  Preclinical Tβ4 work with varying rigor and translational
+                  relevance
+                </li>
+                <li>
+                  Limited, uneven human certainty — and it is easy to mis-cite
+                  Tβ4 papers against a fragment SKU
+                </li>
+                <li>
+                  Marketplace identity papers showing that the label “TB-500”
+                  has not always matched the 43-residue protein
                 </li>
               </ol>
               <p>
                 GRW Research does not invent citations or present placeholder
                 studies as verified outcomes. Where specific papers are later
                 curated by editorial review, they will be listed with clear
-                attribution and access links.
+                attribution.
               </p>
             </section>
 
-            {/* FAQ */}
             <div className="not-prose mt-12">
               <FaqAccordion items={faqs} />
             </div>
 
-            {/* Safety */}
             <section id="safety" className="scroll-mt-28">
               <h2>Safety considerations</h2>
               <p>
-                Safety discussions online are frequently incomplete. From an
-                educational standpoint, researchers should separate three
-                questions:
+                Safety discussions online are frequently incomplete and often
+                assume a molecule the bottle may not contain. From an
+                educational standpoint, separate:
               </p>
               <ul>
-                <li>What adverse findings have been reported in literature?</li>
+                <li>What has been reported for specified Tβ4 preparations</li>
                 <li>
-                  What remains unknown due to limited long-term human data?
+                  What remains unknown for a given commercial analogue or
+                  fragment SKU
                 </li>
                 <li>
-                  What legal and institutional constraints apply to research-use
-                  materials?
+                  Legal, institutional, and sport-anti-doping constraints that
+                  may apply to research-use materials
                 </li>
               </ul>
               <p>
@@ -373,38 +430,43 @@ export default function Bpc157Page() {
               </p>
             </section>
 
-            {/* Quality */}
             <section id="quality" className="scroll-mt-28">
               <h2>Quality considerations</h2>
               <p>
-                When researchers evaluate commercial listings, documentation
-                quality often matters more than marketing language. Common
-                checkpoints include:
+                For TB-500, identity is the first quality check. Marketing
+                names collide; certificates should not.
               </p>
               <ul>
-                <li>Third-party testing documentation availability</li>
+                <li>
+                  Sequence / identity: 43-residue analogue versus 7-residue
+                  17–23 fragment
+                </li>
+                <li>
+                  Molecular weight and CAS consistent with that identity (not
+                  copied from a different SKU)
+                </li>
+                <li>
+                  Third-party testing documentation for the batch you are
+                  evaluating
+                </li>
                 <li>Clear research-use labeling and product identification</li>
-                <li>Batch or certificate transparency where provided</li>
                 <li>Shipping, storage, and handling information clarity</li>
-                <li>Merchant policies that can be independently verified</li>
               </ul>
             </section>
 
-            {/* Comparison */}
             <section id="comparison" className="not-prose scroll-mt-28 mt-12">
               <h2 className="text-3xl font-semibold tracking-tight text-ink">
-                Comparison table placeholder
+                Evaluation scaffold
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
-                A structured comparison scaffold for editorial expansion. Values
-                below are educational framing placeholders, not product rankings.
+                Educational framing only — not a product ranking or a protocol.
               </p>
               <div className="mt-6">
                 <ComparisonTable
-                  caption="BPC-157 research evaluation scaffold"
+                  caption="TB-500 research evaluation scaffold"
                   columns={[
                     { key: "criterion", label: "Criterion" },
-                    { key: "bpc", label: "BPC-157 framing" },
+                    { key: "tb", label: "TB-500 framing" },
                     { key: "notes", label: "Research note" },
                   ]}
                   rows={comparisonRows}
@@ -412,27 +474,30 @@ export default function Bpc157Page() {
               </div>
             </section>
 
-            {/* Where to purchase */}
             <section id="where-to-purchase" className="scroll-mt-28">
-              <h2>Where researchers purchase BPC-157</h2>
+              <h2>Where researchers purchase TB-500</h2>
               <p>
-                After understanding the research context, some readers evaluate
+                After understanding the identity problem, some readers evaluate
                 merchant documentation for research-use materials. GRW Research
                 may earn a commission through disclosed affiliate relationships
                 when you use certain links.
               </p>
               <p>
-                The recommendation posture is intentionally restrained: review
-                testing materials, confirm research-use terms, and treat any
-                purchase decision as independent of this educational content.
+                The listing we point to is Swiss Chems’ TB-500 0.5 mg capsule,
+                60-count format of the thymosin β-4 analogue — paired with our{" "}
+                <Link href="/research/bpc-157">BPC-157 capsule guide</Link> so
+                format and merchant documentation can be compared on the same
+                terms. Review testing materials, confirm research-use terms, and
+                treat any purchase decision as independent of this educational
+                content.
               </p>
             </section>
 
             <div className="not-prose">
               <CtaCard
                 eyebrow="Still evaluating documentation?"
-                title="Open the Swiss Chems BPC-157 listing"
-                body="Return to the merchant page to review testing materials, research-use terms, shipping details, and product format before making any independent decision."
+                title="Open the Swiss Chems TB-500 analogue listing"
+                body="Return to the merchant page to review identity details, testing materials, research-use terms, shipping, and capsule format before making any independent decision."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
@@ -451,7 +516,6 @@ export default function Bpc157Page() {
               </CtaCard>
             </div>
 
-            {/* Disclaimer */}
             <section id="disclaimer" className="scroll-mt-28">
               <h2>Disclaimer</h2>
               <p>
@@ -487,18 +551,18 @@ export default function Bpc157Page() {
                 <ul className="mt-3 space-y-2 text-sm">
                   <li>
                     <Link
-                      href="/research"
+                      href="/research/bpc-157"
                       className="text-accent hover:underline"
                     >
-                      Research Library
+                      BPC-157 guide
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/research/tb-500"
+                      href="/research"
                       className="text-accent hover:underline"
                     >
-                      TB-500 guide
+                      Research Library
                     </Link>
                   </li>
                   <li>

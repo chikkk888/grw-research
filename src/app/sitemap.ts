@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { hubs } from "@/config/hubs";
-import { researchGuides } from "@/config/research-guides";
+import {
+  isDedicatedResearchSlug,
+  researchGuides,
+} from "@/config/research-guides";
 import { getAllArticles } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -10,6 +13,7 @@ const staticPaths = [
   "/contact",
   "/research",
   "/research/bpc-157",
+  "/research/tb-500",
   "/editorial-policy",
   "/medical-disclaimer",
   "/affiliate-disclosure",
@@ -27,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === "/"
         ? 1
-        : path === "/research/bpc-157"
+        : path === "/research/bpc-157" || path === "/research/tb-500"
           ? 0.95
           : path === "/research"
             ? 0.9
@@ -35,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const guideEntries = researchGuides
-    .filter((guide) => guide.slug !== "bpc-157")
+    .filter((guide) => !isDedicatedResearchSlug(guide.slug))
     .map((guide) => ({
       url: absoluteUrl(guide.href),
       lastModified: now,

@@ -32,6 +32,7 @@ Pending: **Peptime** affiliate application (evaluate when approved; do not repla
 | Content | Merchant offer | Status |
 |---------|----------------|--------|
 | `/research/bpc-157` | Swiss Chems BPC-157 capsules | Live |
+| `/research/tb-500` | Swiss Chems TB-500 analogue capsules (0.5 mg, 60 count) | Live |
 | Future GHK-Cu / other peptides | TBD | Waiting on product URLs / partners |
 
 ## Tracking & Attribution
