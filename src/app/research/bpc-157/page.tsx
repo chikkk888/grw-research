@@ -30,7 +30,7 @@ const toc = [
   { id: "current-evidence", label: "Current evidence" },
   { id: "faq", label: "FAQ" },
   { id: "safety", label: "Safety considerations" },
-  { id: "quality", label: "Quality considerations" },
+  { id: "order-checklist", label: "6 questions before you order" },
   { id: "comparison", label: "BPC-157 vs TB-500" },
   { id: "where-to-purchase", label: "Merchant listings" },
   { id: "disclaimer", label: "Disclaimer" },
@@ -65,8 +65,50 @@ const faqs = [
   {
     question: "How should researchers think about purity and testing?",
     answer:
-      "Common evaluation criteria include whether a vendor provides third-party testing documentation, clear research-use labeling, batch transparency, and shipping/handling clarity. Always verify documents directly with the merchant.",
+      "Use the six-question order checklist on this page: compound identity, batch-matched testing docs, research-use labeling, handling clarity, and verifiable merchant policies. Always confirm documents directly with the merchant.",
   },
+];
+
+const orderQuestions = [
+  {
+    question: "Does the listing identify the correct compound?",
+    answer:
+      "The product should be described as BPC-157 — the 15-amino-acid synthetic pentadecapeptide — not a vague “recovery peptide” label or an undisclosed blend. If the page also sells BPC/TB stacks, check that you are evaluating the standalone SKU you intend to compare.",
+  },
+  {
+    question: "Is there third-party testing documentation for this batch?",
+    answer:
+      "Look for a certificate of analysis (COA) or equivalent report from an identifiable laboratory, tied to the batch you would receive. Marketing lines like “99% purity” without a linked report are not a substitute for documentation you can open and read.",
+  },
+  {
+    question: "Does the COA match the product on the page?",
+    answer:
+      "Batch number, compound name, and test date should align with the listing. A generic COA screenshot reused across products, or a document that cannot be matched to the SKU in your cart, is a common weak point.",
+  },
+  {
+    question: "Is research-use labeling and product identification clear?",
+    answer:
+      "Reputable research-chemical listings typically state research-use-only context, show format (lyophilized vial, capsule, etc.), and identify the compound without implying approved therapeutic use.",
+  },
+  {
+    question: "Are shipping, storage, and handling explained?",
+    answer:
+      "Lyophilized peptides and capsule formats carry different handling expectations. The listing or merchant FAQ should address storage guidance and shipping practices clearly enough that you are not guessing after checkout.",
+  },
+  {
+    question: "Can you verify merchant policies independently?",
+    answer:
+      "Contact paths, refund or reship terms, and testing policies should be findable on the merchant site — not only in ad copy. If documentation, policies, and product pages contradict each other, treat that as a stop signal.",
+  },
+];
+
+const orderRedFlags = [
+  "Purity or identity claims with no batch-specific COA linked",
+  "COA image that cannot be matched to the SKU or batch you are buying",
+  "No named third-party laboratory on the testing document",
+  "Compound described in outcome language (heals, cures, FDA approved)",
+  "Blend or fragment sold under the BPC-157 name without sequence clarity",
+  "Merchant policies missing, contradictory, or only visible in checkout fine print",
 ];
 
 const comparisonRows = [
@@ -195,8 +237,8 @@ export default function Bpc157Page() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="#research-overview">Read the overview</ButtonLink>
-              <ButtonLink href="#merchant-documentation" variant="secondary">
-                Sourcing considerations
+              <ButtonLink href="#order-checklist" variant="secondary">
+                6 questions before you order
               </ButtonLink>
             </div>
             <p className="mt-6 rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-muted backdrop-blur">
@@ -293,8 +335,8 @@ export default function Bpc157Page() {
               eyebrow="Research checkpoint"
               title="Mechanism literacy reduces hype susceptibility"
               body="If a source jumps from pathway language to guaranteed outcomes, treat that as a credibility warning — especially on commercial pages."
-              primaryHref="#quality"
-              primaryLabel="See quality considerations"
+              primaryHref="#order-checklist"
+              primaryLabel="See the order checklist"
               tone="default"
             />
 
@@ -370,8 +412,8 @@ export default function Bpc157Page() {
                     ? "View Swiss Chems product information"
                     : "Affiliate links currently disabled"
                 }
-                secondaryHref="#quality"
-                secondaryLabel="See quality considerations"
+                secondaryHref="#order-checklist"
+                secondaryLabel="6 questions before you order"
                 externalPrimary={Boolean(affiliateHref)}
                 tone="emerald"
               >
@@ -419,25 +461,38 @@ export default function Bpc157Page() {
               </p>
             </section>
 
-            {/* Quality */}
-            <section id="quality" className="scroll-mt-28">
-              <h2>Quality considerations</h2>
+            {/* Order checklist */}
+            <section id="order-checklist" className="scroll-mt-28">
+              <h2>6 questions before you order</h2>
               <p>
-                When researchers evaluate commercial listings, documentation
-                quality often matters more than marketing language. Common
-                checkpoints include:
+                Before you evaluate any BPC-157 listing — including affiliate
+                links from this site — run through these six questions. They are
+                the same checkpoints researchers use when comparing COAs,
+                batches, and merchant documentation.
+              </p>
+              <ol>
+                {orderQuestions.map((item) => (
+                  <li key={item.question}>
+                    <strong>{item.question}</strong>
+                    <p>{item.answer}</p>
+                  </li>
+                ))}
+              </ol>
+              <h3>Red flags to skip fast</h3>
+              <p>
+                If you see several of the patterns below, compare another
+                listing before checkout:
               </p>
               <ul>
-                <li>
-                  Identity: the listing should match the 15-amino-acid BPC-157
-                  sequence, with a batch COA and clear research-use labeling
-                </li>
-                <li>Third-party testing documentation for the relevant batch</li>
-                <li>Clear research-use labeling and product identification</li>
-                <li>Batch or certificate transparency where provided</li>
-                <li>Shipping, storage, and handling information clarity</li>
-                <li>Merchant policies that can be independently verified</li>
+                {orderRedFlags.map((flag) => (
+                  <li key={flag}>{flag}</li>
+                ))}
               </ul>
+              <p>
+                This checklist is educational. It does not certify any merchant
+                and is not a guarantee of product quality. Verify every document
+                on the merchant site before an independent purchase decision.
+              </p>
             </section>
 
             {/* Comparison */}
