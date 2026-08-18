@@ -28,11 +28,11 @@ const toc = [
   { id: "research-overview", label: "Research overview" },
   { id: "mechanism", label: "Mechanism" },
   { id: "current-evidence", label: "Current evidence" },
+  { id: "where-to-purchase", label: "Merchant listings" },
   { id: "faq", label: "FAQ" },
   { id: "safety", label: "Safety considerations" },
   { id: "order-checklist", label: "6 questions before you order" },
   { id: "comparison", label: "BPC-157 vs TB-500" },
-  { id: "where-to-purchase", label: "Merchant listings" },
   { id: "disclaimer", label: "Disclaimer" },
 ];
 
@@ -237,8 +237,8 @@ export default function Bpc157Page() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="#research-overview">Read the overview</ButtonLink>
-              <ButtonLink href="#order-checklist" variant="secondary">
-                6 questions before you order
+              <ButtonLink href="#where-to-purchase" variant="secondary">
+                Review product information
               </ButtonLink>
             </div>
             <p className="mt-6 rounded-xl border border-border bg-surface/80 px-4 py-3 text-sm text-muted backdrop-blur">
@@ -335,8 +335,8 @@ export default function Bpc157Page() {
               eyebrow="Research checkpoint"
               title="Mechanism literacy reduces hype susceptibility"
               body="If a source jumps from pathway language to guaranteed outcomes, treat that as a credibility warning — especially on commercial pages."
-              primaryHref="#order-checklist"
-              primaryLabel="See the order checklist"
+              primaryHref="#current-evidence"
+              primaryLabel="Continue to the evidence"
               tone="default"
             />
 
@@ -401,11 +401,26 @@ export default function Bpc157Page() {
               </p>
             </section>
 
+            <section id="where-to-purchase" className="scroll-mt-28">
+              <h2>Evaluating merchant listings</h2>
+              <p>
+                After understanding the research context, some readers evaluate
+                merchant documentation for research-use materials. GRW Research
+                may earn a commission through disclosed affiliate relationships
+                when you use certain links.
+              </p>
+              <p>
+                The recommendation posture is intentionally restrained: review
+                testing materials, confirm research-use terms, and treat any
+                purchase decision as independent of this educational content.
+              </p>
+            </section>
+
             <div className="not-prose" id="merchant-documentation">
               <CtaCard
                 eyebrow="Affiliate-supported documentation link"
-                title="Review BPC-157 product information"
-                body="You can review a merchant listing for testing documentation, research-use notices, and product details. Education remains primary — this is a secondary evaluation step."
+                title="Open the Swiss Chems BPC-157 listing"
+                body="Review testing materials, research-use terms, shipping details, and product format before making any independent decision. Use the six-question checklist below if you want a verification walkthrough first."
                 primaryHref={affiliateHref ?? "/affiliate-disclosure"}
                 primaryLabel={
                   affiliateHref
@@ -492,6 +507,9 @@ export default function Bpc157Page() {
                 This checklist is educational. It does not certify any merchant
                 and is not a guarantee of product quality. Verify every document
                 on the merchant site before an independent purchase decision.
+                The disclosed Swiss Chems listing is in{" "}
+                <a href="#where-to-purchase">Evaluating merchant listings</a>{" "}
+                above.
               </p>
             </section>
 
@@ -520,45 +538,6 @@ export default function Bpc157Page() {
                 />
               </div>
             </section>
-
-            {/* Where to purchase */}
-            <section id="where-to-purchase" className="scroll-mt-28">
-              <h2>Evaluating merchant listings</h2>
-              <p>
-                After understanding the research context, some readers evaluate
-                merchant documentation for research-use materials. GRW Research
-                may earn a commission through disclosed affiliate relationships
-                when you use certain links.
-              </p>
-              <p>
-                The recommendation posture is intentionally restrained: review
-                testing materials, confirm research-use terms, and treat any
-                purchase decision as independent of this educational content.
-              </p>
-            </section>
-
-            <div className="not-prose">
-              <CtaCard
-                eyebrow="Still evaluating documentation?"
-                title="Open the Swiss Chems BPC-157 listing"
-                body="Return to the merchant page to review testing materials, research-use terms, shipping details, and product format before making any independent decision."
-                primaryHref={affiliateHref ?? "/affiliate-disclosure"}
-                primaryLabel={
-                  affiliateHref
-                    ? "View Swiss Chems product information"
-                    : "Affiliate links currently disabled"
-                }
-                secondaryHref="/affiliate-disclosure"
-                secondaryLabel="Read disclosure"
-                externalPrimary={Boolean(affiliateHref)}
-                tone="emerald"
-              >
-                <p className="mt-3 text-xs text-muted">
-                  Disclosed affiliate link. We may earn a commission at no extra
-                  cost to you.
-                </p>
-              </CtaCard>
-            </div>
 
             {/* Disclaimer */}
             <section id="disclaimer" className="scroll-mt-28">
