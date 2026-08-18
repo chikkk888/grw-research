@@ -25,7 +25,7 @@ export function ComparisonTable({ caption, columns, rows }: Props) {
                 <th
                   key={col.key}
                   scope="col"
-                  className="whitespace-nowrap px-5 py-3 font-medium"
+                  className="whitespace-normal break-words px-5 py-3 font-medium sm:whitespace-nowrap"
                 >
                   {col.label}
                 </th>
@@ -39,7 +39,7 @@ export function ComparisonTable({ caption, columns, rows }: Props) {
                 className="border-t border-border text-ink-soft"
               >
                 {columns.map((col) => (
-                  <td key={col.key} className="px-5 py-3.5 align-top">
+                  <td key={col.key} className="break-words px-5 py-3.5 align-top">
                     {row[col.key]}
                   </td>
                 ))}
