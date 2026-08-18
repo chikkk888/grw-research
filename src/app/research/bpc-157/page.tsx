@@ -256,8 +256,8 @@ export default function Bpc157Page() {
       </section>
 
       <Container className="py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_16.5rem]">
-          <article className="prose-article max-w-none">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_16.5rem]">
+          <article className="prose-article min-w-0 max-w-full">
             {/* What is */}
             <section id="what-is-bpc-157" className="scroll-mt-28">
               <h2>What is BPC-157?</h2>

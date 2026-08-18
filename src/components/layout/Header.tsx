@@ -13,8 +13,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-paper/85 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo variant="stacked" />
+      <Container className="flex h-16 min-w-0 items-center justify-between gap-3">
+        <Logo variant="stacked" className="min-w-0 shrink" />
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {primaryNav.map((item) => (
@@ -28,7 +28,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
           <ButtonLink
             href="/research"

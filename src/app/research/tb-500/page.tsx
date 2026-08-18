@@ -240,8 +240,8 @@ export default function Tb500Page() {
       </section>
 
       <Container className="py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_16.5rem]">
-          <article className="prose-article max-w-none">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_16.5rem]">
+          <article className="prose-article min-w-0 max-w-full">
             <section id="what-is-tb-500" className="scroll-mt-28">
               <h2>What is TB-500?</h2>
               <p>

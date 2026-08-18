@@ -81,12 +81,15 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+  width: 100%;
 }
 
 ::selection {
@@ -101,7 +104,9 @@ body {
 
 /* ─── Article prose ───────────────────────────────────────────────────── */
 .prose-article {
-  max-width: 42rem;
+  max-width: min(42rem, 100%);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .prose-article h2 {

@@ -21,7 +21,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-60";
+  "inline-flex max-w-full items-center justify-center gap-2 whitespace-normal text-center transition-all duration-200 disabled:opacity-60";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
